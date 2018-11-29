@@ -1,0 +1,75 @@
+commands to setup the basic React app
+
+-> navigate to directory
+
+1. npm init
+2. mkdir public
+3. mkdir src
+4. abc > .gitignore (in app directory)
+5. npm install --save-dev
+    - babel-core
+    - babel-cli
+    - babel-preset-env
+    - babel-preset-react
+
+6. abc > .babelrc  (in app directory, this tells babel that we're going to use env and react presets)
+7. npm install --save-dev
+    - webpack
+    - webpack-cli
+    - webpack-dev-server
+    - style-loader
+    - css-loader
+    - babel-loader
+
+8. abc > webpack.config.js  (in app directory, this file exports an object with webpacks configuration)
+9. npm install --save
+    - react
+    - react-dom
+
+10. abc > index.js (in src directory)
+11. abc > app.js (in src directory)
+12. abc > app.css (in src directory)
+
+
+THEN YOU'RE ALL SET
+
+use webpack-dev-server --mode development in the terminal
+to start our dev server
+
+OR
+
+put "webpack-dev-server --mode development" in the 'start' script of
+your package.json file
+
+
+/***/
+to have your page update when you make save in you code you can install react-hot-loader
+13. npm install --save react-hot-loader
+
+then import react-hot-loader into app.js and change the export statement by
+addding these lines:
+import {hot} from "react-hot-loader"
+export default hot(module)(App)
+
+/***********/
+webpack-dev-server is actually serving your bundled files from memory
+
+to actually build your files you need to use webpack and add a script called build
+into your package.json with the following command: webpack --mode production
+
+/*****************/
+to complete it even more, you need a file loader for images
+this is accomplished by the following steps
+1. npm install file-loader --save-dev
+2. (in your bundle.js file add) import img from './file.png'
+3. (in your webpack.config.js add to rules)
+    - test: /\.(png|jpg|gif)$/,
+    - use: [ { loader: 'file-loader', options: {} } ]
+
+
+FINAL note
+
+might need to change .babelrc file:
+
+from: { presets: ["@babel/env", "@babel/preset-react"] }
+to: { presets: ["env", "react"] }
