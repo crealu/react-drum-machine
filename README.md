@@ -12,3 +12,7 @@ A volume knob for each pad and a volume gauge for the whole drum machine could b
 My understanding of the webpack configuration is still growing so the explanations are a littel rough.
 
 Visual response to the pressing of pad keys or sounds made.
+
+
+## Working example
+https://codepen.io/lucidcode6/full/eQygOP/
